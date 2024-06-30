@@ -1,0 +1,38 @@
+/* styles.css */
+body.theme__normal {
+    background-color: white;
+    color: black;
+}
+
+body.theme__blue {
+    background-color: #0000ff;
+    color: white;
+}
+
+body.theme__hivis {
+    background-color: yellow;
+    color: black;
+}
+
+body.theme__soft {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+html.font__1 {
+    font-size: 100%;
+}
+
+html.font__125 {
+    font-size: 125%;
+}
+
+html.font__15 {
+    font-size: 150%;
+}
+
+button.accessibility-control {
+    margin: 5px;
+    padding: 10px;
+    font-size: 1em;
+}

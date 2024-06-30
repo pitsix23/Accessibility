@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Accesible</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Mi Sitio Web</h1>
+        <nav>
+            <ul>
+                <li><a href="index.jsp" aria-label="Página de inicio">Inicio</a></li>
+                <li><a href="about.jsp" aria-label="Acerca de">Acerca de</a></li>
+                <li><a href="contact.jsp" aria-label="Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Accesibilidad</h2>
+        <!-- Botones para cambiar el contraste -->
+        <button class="accessibility-control button normal" data-accessibility-feature="colorContrast" data-accessibility-unit="normal">
+            <img src="modules/contrib/civic-accessibility-toolbar/assets/icons/contrast-normal.svg" alt="Contraste normal">
+            <span>Contraste normal</span>
+        </button>
+        <button class="accessibility-control button blue" data-accessibility-feature="colorContrast" data-accessibility-unit="blue">
+            <img src="modules/contrib/civic-accessibility-toolbar/assets/icons/contrast-blue.svg" alt="Contraste azul">
+            <span>Contraste azul</span>
+        </button>
+        <button class="accessibility-control button hivis" data-accessibility-feature="colorContrast" data-accessibility-unit="hivis">
+            <img src="modules/contrib/civic-accessibility-toolbar/assets/icons/contrast-hivis.svg" alt="Alta visibilidad">
+            <span>Alta visibilidad</span>
+        </button>
+        <button class="accessibility-control button soft" data-accessibility-feature="colorContrast" data-accessibility-unit="soft">
+            <img src="modules/contrib/civic-accessibility-toolbar/assets/icons/contrast-soft.svg" alt="Tema suave">
+            <span>Tema suave</span>
+        </button>
+
+        <!-- Botones para cambiar el tamaño de la fuente -->
+        <button class="accessibility-control button small-font" data-accessibility-feature="fontSize" data-accessibility-unit="1">
+            <span>Fuente Pequeña</span>
+        </button>
+        <button class="accessibility-control button medium-font" data-accessibility-feature="fontSize" data-accessibility-unit="1.25">
+            <span>Fuente Mediana</span>
+        </button>
+        <button class="accessibility-control button large-font" data-accessibility-feature="fontSize" data-accessibility-unit="1.5">
+            <span>Fuente Grande</span>
+        </button>
+    </main>
+    <footer>
+        <p>&copy; 2024 Mi Sitio Web</p>
+    </footer>
+    <script>
+        (function($) {
+            // Manejo de clics en los botones de accesibilidad
+            $(".accessibility-control").click(function() {
+                const accessibilityFeature = $(this).attr("data-accessibility-feature");
+                const accessibilityUnit = $(this).attr("data-accessibility-unit");
+
+                if (accessibilityFeature === "fontSize") {
+                    $("html").removeClass("font__1 font__125 font__15");
+                    $("html").addClass(`font__${accessibilityUnit.replace(".", "")}`);
+                } else if (accessibilityFeature === "colorContrast") {
+                    $("body").removeClass("theme__normal theme__blue theme__hivis theme__soft");
+                    $("body").addClass(`theme__${accessibilityUnit}`);
+                }
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>
